@@ -14,8 +14,12 @@ def main():
         elif num == 5:
             buying()
         elif num == 6:
+            print("Final Medicine Database:")
+            for med in medicine_info:
+                print(f"Name: {med[0]}, Price: {med[1]}, Stock: {med[2]}")
             print("Thank You !!!")
             sys.exit()
+
         else:
             print(" Enter a number between 1 and 6 only")
         autoDelete()
