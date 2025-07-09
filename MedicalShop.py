@@ -1,5 +1,7 @@
+
 import sys
 medicine_info = []
+
 def main():
     while True:
         num = options()
@@ -14,12 +16,19 @@ def main():
         elif num == 5:
             buying()
         elif num == 6:
-            print("Thank You !!!")
+            print("\nFinal Medicine Database:")
+            if len(medicine_info) == 0:
+                print("No medicines available.")
+            else:
+                print(f"{'Name':<20}{'Price':<10}{'Stock':<10}")
+                print("-" * 40)
+                for med in medicine_info:
+                    print(f"{med[0]:<20}{med[1]:<10}{med[2]:<10}")
+            print("\nThank You !!!")
             sys.exit()
         else:
             print(" Enter a number between 1 and 6 only")
         autoDelete()
-
 
 def options():
     while True:
@@ -28,7 +37,6 @@ def options():
             return a
         except ValueError:
             print(" Please enter an integer")
-
 
 def addingMedicine():
     name = input(" Enter the name of the Medicine : ").lower().strip()
@@ -81,12 +89,10 @@ def addingMedicine():
         med = [name,price,stock]
         medicine_info.append(med)
         print(f" {name} Medicine added successfully!!!")   
-    print(f" {medicine_info}")
 
-    
 def removingMedicine():
     if len(medicine_info)==0:
-            print(f" Medicines is empty!!!")
+        print(f" Medicines is empty!!!")
     else:
         name = input(" Enter the name of the Medicine : ").lower().strip()
         for i in medicine_info:
@@ -99,12 +105,10 @@ def removingMedicine():
                     print(f" No medicine with {name} name was found")
                 else:
                     continue
-        print(f" {medicine_info}")
-        
-            
+
 def searchingMedicine():
     if len(medicine_info)==0:
-            print(f" Medicines is empty!!!")
+        print(f" Medicines is empty!!!")
     else:
         name = input(" Enter the name of the Medicine : ").lower().strip()
         for i in medicine_info:
@@ -117,10 +121,9 @@ def searchingMedicine():
                 else:
                     continue
 
-
 def addingStock():
     if len(medicine_info)==0:
-            print(f" Medicines is empty!!!")
+        print(f" Medicines is empty!!!")
     else:
         name = input(" Enter the name of the Medicine : ").lower().strip()
         while True:
@@ -139,12 +142,10 @@ def addingStock():
                     print(f" No medicine with {name} name was found")
                 else:
                     continue
-        print(f" {medicine_info}")
-        
 
 def buying():
     if len(medicine_info)==0:
-                print(f" Medicines is empty!!!")
+        print(f" Medicines is empty!!!")
     else:
         price  = 0
         while True:
@@ -183,16 +184,12 @@ def buying():
                 continue
             else:
                 break
-        print(f" {medicine_info}")
-
 
 def autoDelete():
-    for i in medicine_info:
+    for i in medicine_info[:]:
         if i[2] == 0:
             medicine_info.remove(i)
             print(f" {i} medicine is removed as it reached to 0 stock")
-    print(f" {medicine_info}")
-    
 
 if __name__ == "__main__":
     main()
