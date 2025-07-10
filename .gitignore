@@ -21,3 +21,5 @@ Thumbs.db
 
 # Git ignored folders
 .gitignore
+
+credentials.env
