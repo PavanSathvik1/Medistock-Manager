@@ -3,14 +3,21 @@ import os
 import sys
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("credentials.env")
 
 host = os.getenv("DB_HOST")
 user = os.getenv("DB_USER")
 password = os.getenv("DB_PASSWORD")
 db = os.getenv("DB_NAME")
 
-connection = pymysql(host = host,user = user,password = password,database = db)
+print("HOST =", host)
+print("USER =", user)
+print("PASSWORD =", password)
+print("DB =", db)
+
+
+connection = pymysql.connect(host = host,user = user,password = password,database = db)
+print(" Connected to MySQL!")
 cursor = connection.cursor();
 
 create_table_query = """
@@ -78,6 +85,7 @@ def addingMedicine():
                     cursor.execute("UPDATE medicines SET stock = stock + %s WHERE name = %s",(stock,name))
                     connection.commit()
                     print(f" Stock updated for {name}")
+                    break
                 except ValueError:
                         print(" Enter a number")
             elif ask == "no":
