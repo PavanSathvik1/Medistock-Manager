@@ -166,7 +166,7 @@ def buying():
         if a == "yes":
             continue
         else:
-            print(f"\n💰 The final total price is: ₹{final_price:.2f}")
+            print(f"\n The final total price is: ₹{final_price:.2f}")
             break
 
 
