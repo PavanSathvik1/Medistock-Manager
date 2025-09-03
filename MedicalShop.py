@@ -10,11 +10,6 @@ user = os.getenv("DB_USER")
 password = os.getenv("DB_PASSWORD")
 db = os.getenv("DB_NAME")
 
-print("HOST =", host)
-print("USER =", user)
-print("PASSWORD =", password)
-print("DB =", db)
-
 
 connection = pymysql.connect(host = host,user = user,password = password,database = db)
 print(" Connected to MySQL!")
