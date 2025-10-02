@@ -1,7 +1,7 @@
 # Medical Shop Dashboard 🏥💊
 
 A console-based inventory management system for a medical shop, built using **Python** and **MySQL**.  
-Employees can add, remove, update, search, and sell medicines through an interactive menu.
+Employees can add, remove, update, search, and sell medicines through an interactive menu
 
 ---
 
